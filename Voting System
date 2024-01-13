@@ -1,0 +1,67 @@
+# Define the list of participants.
+
+participants = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
+
+# Define the list of choices.
+
+choices = ["Option 1", "Option 2", "Option 3", "Option 4", "Option 5"]
+
+# Define the function that will allow each participant to vote for a choice.
+
+def vote(participant, choice):
+
+global participants, choices
+
+participants[participant] = choice
+
+# Define the function that will allow each participant to change their vote.
+
+def change_vote(participant, choice):
+
+global participants, choices
+
+participants[participant] = choice
+
+# Define the function that will calculate the majority vote.
+
+def calculate_majority_vote():
+
+global participants, choices
+
+majority_vote = 0
+
+for participant in participants:
+
+majority_vote += participants[participant]
+
+majority_vote = majority_vote // len(participants)
+
+return majority_vote
+
+# Define the function that will announce the results of the voting.
+
+def announce_results():
+
+global participants, choices
+
+majority_vote = calculate_majority_vote()
+
+print("The majority vote is", majority_vote)
+
+print("The choices that were voted for are", choices)
+
+# Call the functions.
+
+vote(1, "Option 1")
+
+vote(2, "Option 2")
+
+vote(3, "Option 3")
+
+vote(4, "Option 4")
+
+vote(5, "Option 5")
+
+change_vote(1, "Option 2")
+
+announce_results()
